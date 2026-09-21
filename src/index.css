@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-body text-body text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-bold;
+    /* Немного поджимаем трекинг у крупных заголовков — Manrope в больших кеглях
+       иначе выглядит разреженным */
+    letter-spacing: -0.01em;
+  }
+
+  /* Единое кольцо фокуса на всём проекте. Только :focus-visible — чтобы кольцо
+     не появлялось при клике мышью, но обязательно появлялось при Tab. */
+  :focus-visible {
+    outline: 3px solid theme('colors.accent.DEFAULT');
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Пользователи с включённой настройкой «уменьшить движение» получают
+     статичный интерфейс. Требование доступности, часто забывают. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Контейнер контента: максимум 1200px, поля 24px (16px на мобильном) */
+  .container-page {
+    @apply mx-auto w-full max-w-content px-4 sm:px-6;
+  }
+
+  /* ── Интерактивная комната на SVG-плане квартиры ───────────────────────────
+     transform-box: fill-box нужен, чтобы transform считался от центра самой
+     фигуры, а не от начала координат SVG. Без него комната «улетает» при hover. */
+  .room-hit {
+    cursor: pointer;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition:
+      transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+      opacity 0.25s ease;
+  }
+
+  .room-hit:hover,
+  .room-hit:focus-visible {
+    transform: translateY(-6px);
+  }
+
+  /* Когда наводим на одну комнату — остальные слегка гаснут.
+     Так фокус внимания уходит на выбранную, без резкой смены цвета. */
+  .apartment-plan:hover .room-hit:not(:hover) {
+    opacity: 0.55;
+  }
+
+  .room-hit__body {
+    transition:
+      fill 0.25s ease,
+      stroke 0.25s ease;
+  }
+
+  /* Скрытая ссылка «к содержимому» для клавиатуры — появляется только при Tab */
+  .skip-link {
+    @apply absolute left-4 top-4 z-50 -translate-y-24 rounded-ctl bg-ink px-4 py-3 text-caption
+      font-semibold text-white transition-transform focus-visible:translate-y-0;
+  }
+}

@@ -1,0 +1,261 @@
+import type { Article } from '../types';
+
+/**
+ * Контент-заглушка, но с настоящими заголовками и описаниями — на Lorem ipsum
+ * невозможно проверить ни вёрстку карточек, ни длину строк, ни фильтры.
+ *
+ * Обрати внимание: у предмета «Розетки и электрика» (sockets) статей нет намеренно —
+ * так на живом прототипе видно пустое состояние раздела.
+ */
+export const articles: Article[] = [
+  // ── Стиральная машина: основной, самый проработанный раздел ────────────────
+  {
+    id: 'wm-dark-clothes',
+    itemId: 'washing-machine',
+    title: 'Как стирать тёмные вещи, чтобы они не выцветали',
+    excerpt:
+      'Холодная вода, изнанка, половина дозы порошка и отказ от кондиционера — четыре привычки, после которых чёрная футболка переживёт первый семестр.',
+    topics: ['Тёмные и светлые вещи'],
+    minutes: 5,
+    likes: 214,
+    views: 3120,
+    forNovice: true,
+    hasSteps: true,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-03-12',
+  },
+  {
+    id: 'wm-self-clean',
+    itemId: 'washing-machine',
+    title: 'Самоочистка стиральной машины: как и зачем',
+    excerpt:
+      'Раз в два месяца — пустой барабан, 90 градусов и лимонная кислота. Разбираем, что делать с фильтром, лотком и резинкой люка.',
+    topics: ['Самоочистка и уход'],
+    minutes: 7,
+    likes: 168,
+    views: 2480,
+    forNovice: true,
+    hasSteps: true,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-02-28',
+  },
+  {
+    id: 'wm-modes',
+    itemId: 'washing-machine',
+    title: 'Режимы стирки: что выбрать для разных тканей',
+    excerpt:
+      'Хлопок, синтетика, шерсть, «быстрая 30» — что на самом деле меняется внутри машинки и почему деликатный режим не спасает джинсы.',
+    topics: ['Режимы стирки'],
+    minutes: 10,
+    likes: 302,
+    views: 4870,
+    forNovice: false,
+    hasSteps: false,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-01-19',
+  },
+  {
+    id: 'wm-sorting',
+    itemId: 'washing-machine',
+    title: 'Как сортировать бельё перед стиркой',
+    excerpt:
+      'Три кучки вместо одной: по цвету, по ткани и по степени загрязнения. Плюс список вещей, которые стирают только отдельно.',
+    topics: ['Тёмные и светлые вещи'],
+    minutes: 4,
+    likes: 97,
+    views: 1540,
+    forNovice: true,
+    hasSteps: true,
+    hasPhoto: false,
+    author: 'Редакция',
+    date: '2026-04-02',
+  },
+  {
+    id: 'wm-smell',
+    itemId: 'washing-machine',
+    title: 'Запах из стиральной машины: откуда берётся и что делать',
+    excerpt:
+      'Затхлый запах почти всегда живёт в трёх местах: резинка люка, лоток и фильтр слива. Проверяем по очереди за один вечер.',
+    topics: ['Самоочистка и уход'],
+    minutes: 6,
+    likes: 143,
+    views: 2210,
+    forNovice: true,
+    hasSteps: true,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-03-30',
+  },
+  {
+    id: 'wm-detergent',
+    itemId: 'washing-machine',
+    title: 'Порошок, гель или капсулы — что выбрать',
+    excerpt:
+      'Гель лучше растворяется в холодной воде, порошок сильнее против грязи, капсулы удобнее и дороже. Сравниваем по цене за стирку.',
+    topics: ['Средства для стирки'],
+    minutes: 5,
+    likes: 121,
+    views: 1890,
+    forNovice: true,
+    hasSteps: false,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-02-11',
+  },
+  {
+    id: 'wm-labels',
+    itemId: 'washing-machine',
+    title: 'Значки на бирках одежды: полная расшифровка',
+    excerpt:
+      'Таз, утюг, треугольник и круг в квадрате. Шпаргалка, которую можно сохранить в телефон и открывать прямо у машинки.',
+    topics: ['Режимы стирки', 'Средства для стирки'],
+    minutes: 8,
+    likes: 265,
+    views: 3960,
+    forNovice: false,
+    hasSteps: false,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-01-08',
+  },
+
+  // ── Кухня ──────────────────────────────────────────────────────────────────
+  {
+    id: 'stove-pasta',
+    itemId: 'stove',
+    title: 'Макароны, которые не слипаются: базовая техника',
+    excerpt: 'Сколько воды, когда солить, зачем оставлять полстакана отвара и почему масло в кастрюлю не нужно.',
+    topics: ['Крупы и макароны', 'Первый раз готовлю'],
+    minutes: 4,
+    likes: 189,
+    views: 2740,
+    forNovice: true,
+    hasSteps: true,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-03-05',
+  },
+  {
+    id: 'stove-dinner-20',
+    itemId: 'stove',
+    title: 'Пять ужинов за 20 минут из одного похода в магазин',
+    excerpt: 'Один список покупок на 900 рублей — пять разных ужинов на неделю без готовки впрок и без доставки.',
+    topics: ['Быстрые ужины'],
+    minutes: 9,
+    likes: 342,
+    views: 5120,
+    forNovice: true,
+    hasSteps: false,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-04-14',
+  },
+  {
+    id: 'fridge-storage',
+    itemId: 'fridge',
+    title: 'Что где лежит в холодильнике и сколько хранится',
+    excerpt: 'Дверца — самая тёплая зона, нижняя полка — самая холодная. Раскладываем продукты так, чтобы не выбрасывать.',
+    topics: ['Сроки хранения'],
+    minutes: 6,
+    likes: 156,
+    views: 2030,
+    forNovice: true,
+    hasSteps: false,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-02-20',
+  },
+
+  // ── Ванная (кроме стиралки) ────────────────────────────────────────────────
+  {
+    id: 'shower-mold',
+    itemId: 'shower',
+    title: 'Плесень в швах плитки: как убрать и не дать вернуться',
+    excerpt: 'Сначала проветривание и вытяжка, потом уже химия. Иначе чёрные точки возвращаются через две недели.',
+    topics: ['Плесень и налёт'],
+    minutes: 7,
+    likes: 134,
+    views: 1760,
+    forNovice: false,
+    hasSteps: true,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-03-22',
+  },
+  {
+    id: 'chem-mix',
+    itemId: 'chemicals',
+    title: 'Что нельзя смешивать при уборке',
+    excerpt: 'Хлорка и средство от известкового налёта дают токсичный газ. Короткий список сочетаний, которые опасны дома.',
+    topics: ['Безопасность'],
+    minutes: 3,
+    likes: 288,
+    views: 4410,
+    forNovice: true,
+    hasSteps: false,
+    hasPhoto: false,
+    author: 'Редакция',
+    date: '2026-01-30',
+  },
+
+  // ── Спальня ────────────────────────────────────────────────────────────────
+  {
+    id: 'aid-kit-basic',
+    itemId: 'first-aid',
+    title: 'Базовая аптечка: что реально нужно дома',
+    excerpt: 'Жаропонижающее, пластыри, антисептик, термометр и регидратационная соль. Всё остальное — по назначению врача.',
+    topics: ['Базовая аптечка'],
+    minutes: 6,
+    likes: 227,
+    views: 3380,
+    forNovice: true,
+    hasSteps: false,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-02-05',
+  },
+  {
+    id: 'sleep-session',
+    itemId: 'bed',
+    title: 'Как вернуть режим сна после сессии',
+    excerpt: 'Сдвигать подъём по 30 минут в день, а не ложиться раньше силой. Плюс что делать со светом и телефоном.',
+    topics: ['Режим сна'],
+    minutes: 8,
+    likes: 311,
+    views: 4620,
+    forNovice: true,
+    hasSteps: true,
+    hasPhoto: false,
+    author: 'Редакция',
+    date: '2026-04-08',
+  },
+
+  // ── Коридор ────────────────────────────────────────────────────────────────
+  {
+    id: 'meters-howto',
+    itemId: 'budget',
+    title: 'Как снимать показания счётчиков и куда их передавать',
+    excerpt: 'Где искать счётчики, какие цифры переписывать, до какого числа передавать и что будет, если забыть.',
+    topics: ['Счётчики', 'Квартплата'],
+    minutes: 5,
+    likes: 176,
+    views: 2590,
+    forNovice: true,
+    hasSteps: true,
+    hasPhoto: true,
+    author: 'Редакция',
+    date: '2026-03-18',
+  },
+];
+
+/** Все статьи по конкретному предмету (подкатегории) */
+export function getArticlesByItem(itemId: string): Article[] {
+  return articles.filter((article) => article.itemId === itemId);
+}
+
+export function getArticle(articleId: string | undefined): Article | undefined {
+  return articles.find((article) => article.id === articleId);
+}
